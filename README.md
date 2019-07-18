@@ -6,21 +6,21 @@ Binding is done using Autowire (Ajax/RPC calls) and BooPickle (binary object ser
 sbt new amsterdam-scala/Akka.http-Sjs-Fullstack.g8
 ```
 
-It will create an sbt project in a (user named) subdirectory e.g. 'Scala Full Stack'.
+It will create an sbt project in a (user named) subdirectory e.g. 'scala-full-stack'.
 
 ```
-cd "Scala Full Stack"
+cd .\scala-full-stack\
 sbt
 reStart
 ```
 
-After compiling it will fire up your default web browser.
+After compiling it will fire up your default web browser, which displays:
+
+![Screenshot](https://raw.githubusercontent.com/amsterdam-scala/Akka.http-Sjs-Fullstack.g8/master/doc/Scala%20Fullstack.gif)
 
 Client code in `js`.
 Server code in `jvm`.
 Shared code in `shared`.
-
-![Screenshot](https://raw.githubusercontent.com/amsterdam-scala/Akka.http-Sjs-Fullstack.g8/master/doc/Scala%20Fullstack.gif)
 
 [g8]: http://www.foundweekends.org/giter8/
 

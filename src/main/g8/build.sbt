@@ -36,7 +36,7 @@ lazy val shared = (crossProject(JSPlatform, JVMPlatform).crossType(CrossType.Pur
   .jsConfigure(_ enablePlugins ScalaJSWeb)
 
 val vAkka          = "2.5.23"
-val vAkkaHttp      = "10.1.8"
+val vAkkaHttp      = "10.1.9"
 val vAutowire      = "0.2.6"
 val vBoopickle     = "1.3.1"
 val vScala         = "2.12.8"
