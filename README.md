@@ -1,20 +1,26 @@
-This is a minimal [Giter8][g8] template for Full Stack Scala with ScalaJS in the front & Akka HTTP in the back. Binding is done using Autowire (Ajax/RPC calls) and BooPickle (binary object serialization).
+This is a minimal [Giter8][g8] template for Full Stack Scala with [Scala.js](https://www.scala-js.org/) in the front & [Akka HTTP](https://doc.akka.io/docs/akka-http/current/) in the back. Running respectively EcmaScript and JVM code. 
+
+Binding is done using Autowire (Ajax/RPC calls) and BooPickle (binary object serialization).
 
 ```
-sbt new tbje/full-stack.g8
+sbt new amsterdam-scala/Akka.http-Sjs-Fullstack.g8
 ```
 
-It will create the project in a subdir called full-stack.
+It will create an sbt project in a (user named) subdirectory e.g. 'Scala Full Stack'.
 
 ```
-cd full-stack
+cd "Scala Full Stack"
 sbt
 reStart
 ```
 
+After compiling it will fire up your default web browser.
+
 Client code in `js`.
 Server code in `jvm`.
 Shared code in `shared`.
+
+![Screenshot](https://raw.githubusercontent.com/amsterdam-scala/Akka.http-Sjs-Fullstack.g8/master/doc/Scala%20Fullstack.gif)
 
 [g8]: http://www.foundweekends.org/giter8/
 
