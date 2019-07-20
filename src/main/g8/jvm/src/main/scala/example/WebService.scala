@@ -18,7 +18,10 @@ object WebService extends Directives {
         }
       } ~
         path("favicon.ico") {
-          getFromResource("public/" + "favicon.ico")
+          getFromResource("public/favicon.ico")
+        } ~
+        path("main.css") {
+          getFromResource("public/main.css")
         } ~
         (pathPrefix("assets" / Remaining) & respondWithHeader(`Cache-Control`(`no-cache`))) { file =>
           // optionally compresses the response with Gzip or Deflate
