@@ -3,6 +3,7 @@ package example
 import akka.actor.ActorSystem
 import akka.http.scaladsl.model.headers.CacheDirectives.`no-cache`
 import akka.http.scaladsl.model.headers.{Referer, `Cache-Control`}
+import akka.http.scaladsl.model.MediaTypes.{`image/x-icon`, `text/css`}
 import akka.http.scaladsl.model.{ContentTypes, HttpEntity, Uri}
 import akka.http.scaladsl.server.{Directives, Route}
 import akka.stream.Materializer
@@ -17,8 +18,8 @@ object WebService extends Directives {
           HttpEntity(ContentTypes.`text/html(UTF-8)`, string = Page.html)
         }
       } ~
-        path("favicon.ico") {
-          getFromResource("public/favicon.ico")
+        path("favicon.ico")  {
+          getFromResource("public/favicon.ico", contentType=`image/x-icon`)
         } ~
         path("main.css") {
           getFromResource("public/main.css")

@@ -7,8 +7,8 @@ trait Api {
 }
 
 object Ids {
-  val (idPayload, idListGroupHeader, idZoneId, idZTime, idLocTime, idStatus) =
-    ("idPayload", "idListGroupHeader", "idZoneId", "idZTime", "idLocTime", "idStatus")
+  val (idListGroupHeader, idZoneId, idZTime, idLocTime, idStatus) =
+    ("idListGroupHeader", "idZoneId", "idZTime", "idLocTime", "idStatus")
 }
 
 case class MyType(referer: String, time: Instant, localtime: String)

@@ -3,7 +3,7 @@ package example
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-import autowire._
+import autowire.{clientCallable,unwrapClientProxy}
 import boopickle.Default._
 import org.scalajs.dom
 import shared.MyType.instantPickler
@@ -60,5 +60,5 @@ object Client {
     }
   }
 
-  def el[T <: dom.raw.HTMLElement](id: String) = dom.document.getElementById(id).asInstanceOf[T]
+  private def el[T <: dom.raw.HTMLElement](id: String) = dom.document.getElementById(id).asInstanceOf[T]
 }

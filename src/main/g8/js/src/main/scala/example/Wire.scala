@@ -18,7 +18,7 @@ object Wire extends autowire.Client[ByteBuffer, Pickler, Pickler] {
     ).map(r => TypedArrayBuffer.wrap(r.response.asInstanceOf[ArrayBuffer]))
   }
 
-  override def read[Result: Pickler](p: ByteBuffer) = Unpickle[Result].fromBytes(p)
+  override def read[Result: Pickler](p: ByteBuffer): Result = Unpickle[Result].fromBytes(p)
 
-  override def write[Result: Pickler](r: Result) = Pickle.intoBytes(r)
+  override def write[Result: Pickler](r: Result): ByteBuffer = Pickle.intoBytes(r)
 }
