@@ -10,8 +10,8 @@ lazy val server = (project in file("jvm")).settings(
   pipelineStages in Assets := Seq(scalaJSPipeline),
   compile in Compile := ((compile in Compile) dependsOn scalaJSPipeline).value,
   libraryDependencies ++= Seq(
-    "com.typesafe.akka"   %% "akka-http"   % vAkkaHttp,
-    "com.typesafe.akka"   %% "akka-stream" % vAkka
+    "com.typesafe.akka" %% "akka-http"          % vAkkaHttp,
+    "com.typesafe.akka" %% "akka-stream"        % vAkka
   ),
   WebKeys.packagePrefix in Assets := "public/",
   managedClasspath in Runtime += (packageBin in Assets).value
@@ -20,17 +20,17 @@ lazy val server = (project in file("jvm")).settings(
 lazy val client = (project in file("js")).settings(
   scalaJSUseMainModuleInitializer := true,
   libraryDependencies ++= Seq(
-    "org.scala-js"     %%% "scalajs-dom"         % vScalajsDom,
-    "io.github.cquiroz"%%% "scala-java-time-tzdb"% "2.0.0-RC3_2019a"
+    "org.scala-js"     %%% "scalajs-dom"         %vScalajsDom,
+    "io.github.cquiroz"%%% "scala-java-time-tzdb"%"2.0.0-RC3_2019a"
   )
 ).settings(sharedSettings).enablePlugins(ScalaJSPlugin, ScalaJSWeb).dependsOn(shared.js)
 
 lazy val shared = (crossProject(JSPlatform, JVMPlatform).crossType(CrossType.Pure) in file("shared")).
   settings(
     libraryDependencies ++= Seq(
-      "com.lihaoyi"      %%% "autowire"          % vAutowire,
-      "com.lihaoyi"      %%% "scalatags"         % vScalatags,
-      "io.suzaku"        %%% "boopickle"         % vBoopickle)
+      "com.lihaoyi"    %%% "autowire"           % vAutowire,
+      "com.lihaoyi"    %%% "scalatags"          % vScalatags,
+      "io.suzaku"      %%% "boopickle"          % vBoopickle)
   ).settings(sharedSettings)
   .jsConfigure(_ enablePlugins ScalaJSWeb)
 
