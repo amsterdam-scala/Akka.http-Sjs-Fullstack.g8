@@ -6,12 +6,15 @@ import java.time.format.DateTimeFormatter
 import autowire.{clientCallable,unwrapClientProxy}
 import boopickle.Default._
 import org.scalajs.dom
+import org.scalajs.dom.experimental.serviceworkers.toServiceWorkerNavigator
+
 import shared.MyType.instantPickler
 import scalatags.JsDom.all._
 import shared.Ids
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
+
 import scala.util.{Failure, Success}
 
 object Client {
@@ -21,6 +24,22 @@ object Client {
 
     println(s"Trying to get time from server …")
     el[dom.html.Div](shared.Ids.idZoneId).textContent = zoneId.toString
+
+    registerServiceWorker()
+
+    def registerServiceWorker(): Unit = {
+      toServiceWorkerNavigator(dom.window.navigator)
+        .serviceWorker
+        .register("/assets/sw-fastopt.js")
+        .toFuture
+        .onComplete {
+          case Success(registration) =>
+            println("registerServiceWorker: registered service worker")
+            registration.update()
+          case Failure(error) => println(s"registerServiceWorker: service worker registration failed > ${error.printStackTrace()}")
+        }
+    }
+
 
     def run(): Unit = {
 
