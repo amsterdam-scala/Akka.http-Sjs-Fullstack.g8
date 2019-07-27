@@ -13,7 +13,7 @@ import scala.util.{Failure, Success}
 
 object ServiceWorker {
   val todoCache = "todo-cache"
-  val todoAssets: js.Array[RequestInfo] = List[RequestInfo](
+  def todoAssets: js.Array[RequestInfo] = List[RequestInfo](
     /*"/",*/
     "index.html",
     "style.css",

@@ -31,7 +31,13 @@ object Page {
        |        <div class="row">
        |            <div class="col-md-4"></div>
        |              <ul class="list-group my-5">
-       |                <li id="${idListGroupHeader}" class="list-group-item active">Waiting for server</li>
+       |                <li class="list-group-item active">
+       |                <div class="d-flex flex-md-row flex-column justify-content-between">
+       |                  <div id="${idListGroupHeader}">Waiting for server</div>
+       |                  <img src="assets/android-icon-192x192.png" alt="Cinque Terre" width="48" height="48"></img>
+       |                </div>
+       |                </li>
+       |
        |                <li class="list-group-item">
        |                    <dt>Zone-id of the client, send to server</dt>
        |                    <dd id="${idZoneId}">...</dd>
