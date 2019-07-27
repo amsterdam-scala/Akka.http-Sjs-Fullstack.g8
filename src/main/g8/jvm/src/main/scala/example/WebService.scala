@@ -22,9 +22,7 @@ object WebService extends Directives {
 
     get {
       pathSingleSlash {
-        complete {
-          HttpEntity(ContentTypes.`text/html(UTF-8)`, string = Page.html)
-        }
+        complete {Page.messageEntity()}
       } ~
         path("favicon.ico") {
           getFromResource("public/favicon.ico", contentType = `image/x-icon`)
@@ -32,7 +30,8 @@ object WebService extends Directives {
         (pathPrefix("assets" / Remaining) & respondWithHeader(`Cache-Control`(`no-cache`))) { file =>
           // optionally compresses the response with Gzip or Deflate
           // if the client accepts compressed responses
-          getFromResource("public/" + file, ct(file))
+          if(file.isBlank) complete {Page.messageEntity()}
+          else getFromResource("public/" + file, ct(file))
         }
     } ~
       post {

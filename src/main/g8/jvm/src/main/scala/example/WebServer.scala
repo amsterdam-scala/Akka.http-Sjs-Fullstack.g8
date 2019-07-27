@@ -28,9 +28,11 @@ object WebServer {
 
       println(s"Server listening at ${clientUri.getRawAuthority}")
 
+/*
       if (Desktop.isDesktopSupported && Desktop.getDesktop.isSupported(Desktop.Action.BROWSE))
         Desktop.getDesktop.browse(clientUri)
       else println(s"Automatic start of Web browser not possible.\nWeb browser must be started manually.")
+*/
 
     case Failure(exception) =>
     }

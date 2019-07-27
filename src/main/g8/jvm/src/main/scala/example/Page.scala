@@ -1,18 +1,21 @@
 package example
 
+import akka.http.scaladsl.model.{ContentTypes, HttpEntity}
 import shared.Ids._
 
 object Page {
-  val html: String =
+  def messageEntity() = {
+
+   val htmlText: String =
     s"""<!DOCTYPE HTML>
-       |<html>
+       |<html lang="en">
        |  <head>
        |    <meta charset="UTF-8">
        |    <meta name="author" content="Cloudius">
        |    <meta name="description" content="">
        |    <meta name="viewport" content="width=device-width initial-scale=1">
        |    <title>Hello Full Scala Stack</title>
-       |    <link rel="stylesheet" href="/assets/main.css">
+       |    <link rel="stylesheet" href="/assets/style.css">
        |    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
        |          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
        |    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -73,7 +76,7 @@ object Page {
        |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└───main<br>
        |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├───public<br>
        |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;favicon.ico<br>
-       |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;main.css<br>
+       |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style.css<br>
        |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
        |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├───resources<br>
        |                │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application.conf<br>
@@ -104,4 +107,6 @@ object Page {
        |  </body>
        |</html>""".stripMargin
 
+    HttpEntity(ContentTypes.`text/html(UTF-8)`, string = htmlText)
+  }
 }
